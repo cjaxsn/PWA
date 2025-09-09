@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
     <meta charset="UTF-8">
     <title>Offline</title>
-</head>
-<body>
-Offline Capabilities
-</body>
+     <link rel="stylesheet" href="css/w3.css">
+     <link rel="stylesheet" href="css/w3-theme-blue.css">
+  <script src="scripts/main.js"></script>
+ </head>
+ <body onload="checkIndexedDBSupport();">
+ <h1>Offline Capabilities</h1>
+ <input type="button" id="btnCreateDB" value="Create Database" onclick="createDatabase();" disabled="disabled"/>
+ <input type="button" id="btnCreateObjectStore" value="Create Object Store" onclick="createObjectStore()" disabled="disabled"/>
+ <input type="button" id="btnCalcStorage" value="Calc Storage" onclick="checkStorage();" disabled="disabled"/>
+  <table class="w3-table">
+   <tr>
+    <!--<th></th>
+    <th></th>-->
+   </tr>
+   <tr>
+    <td>Storage Quota:</td>
+    <td id="storageQuota"></td>
+   </tr>
+   <tr>
+    <td>Bytes Available:</td>
+    <td id="storageBytesAvailable"></td>
+   </tr>
+   <tr>
+    <td>Percentage Used:</td>
+    <td id="storagePctUsed"></td>
+   </tr>
+   <tr>
+    <td>Storage Remaining:</td>
+    <td id="storageRemaining"></td>
+   </tr>
+  </table>
+ </body>
 </html>

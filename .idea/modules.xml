@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PWA.iml" filepath="$PROJECT_DIR$/.idea/PWA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../cjaxsn.github.io/.idea/cjaxsn.github.io.iml" filepath="$PROJECT_DIR$/../cjaxsn.github.io/.idea/cjaxsn.github.io.iml" />
     </modules>
   </component>
 </project>
