@@ -68,21 +68,27 @@ function createObjectStore()
 async function checkStorage()
 {
     console.log("Checking Storage");
-    if (navigator.storage && navigator.storage.estimate) {
+    if (navigator.storage && navigator.storage.estimate)
+    {
         const objStorage = await navigator.storage.estimate();
-        // .usage -> Number of bytes used.
-        console.log("quota" + objStorage.usage);
-        document.getElementById("storageQuota").innerText = objStorage.usage.toString();
+        // .quota -> Maximum number of bytes available for total storage of a device
+        console.log("quota" + objStorage.quota);
+        document.getElementById("storageQuota").innerText = objStorage.quota.toString();
+        document.getElementById("storageQuotaGB").innerText = byteToGigaByte(objStorage.quota);
 
-        // .quota -> Maximum number of bytes available.
-        document.getElementById("storageBytesAvailable").innerText = objStorage.quota.toString();
+        // .usage -> Number of bytes being used by site
+        console.log("quota" + objStorage.usage);
+        document.getElementById("storageBytesAvailable").innerText = objStorage.usage.toString();
 
         const percentageUsed = (objStorage.usage / objStorage.quota) * 100;
         console.log(`You've used ${percentageUsed}% of the available storage.`);
-        document.getElementById("storagePctUsed").innerText = percentageUsed.toString();
+        document.getElementById("storagePctUsed").innerText = percentageUsed.toFixed(2);
 
         const remaining = objStorage.quota - objStorage.usage;
         document.getElementById("storageRemaining").innerHTML = remaining.toString();
         console.log(`You can write up to ${remaining} more bytes.`);
     }
+}
+function byteToGigaByte(n) {
+    return  (n / 1073741824).toFixed(2);
 }
